@@ -7,10 +7,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((AffectingLayers | (1 << other.gameObject.layer)) == 0)
-            return;
-
-        other.gameObject.GetComponent<IHealthContainer>().ChangeHealth(-damage);
-        Destroy(gameObject);
+        if ((AffectingLayers & (1 << other.gameObject.layer)) != 0)
+        {
+            other.gameObject.GetComponent<IHealthContainer>().ChangeHealth(-damage);
+            Destroy(gameObject);
+        }
     }
 }
