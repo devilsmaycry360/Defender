@@ -11,10 +11,12 @@ public class Astroid : MonoBehaviour, IHealthContainer, IScoreContainer
     
     [SerializeField] private int maxHealth;
     [SerializeField] private int score;
+    [SerializeField] private GameObject deathExplosion;
     
     private int currentHealth;
     private Action destroyAction => DestroyThis;
     private Action addScoreAction => AddToScore;
+    private Action deathExplosionAction => PlayDeathExplosion;
 
     public void ChangeHealth(int amount)
     {
@@ -31,12 +33,14 @@ public class Astroid : MonoBehaviour, IHealthContainer, IScoreContainer
         
         OnDeath += destroyAction;
         OnDeath += addScoreAction;
+        OnDeath += deathExplosionAction;
     }
 
     private void OnDisable()
     {
         OnDeath -= destroyAction;
         OnDeath -= addScoreAction;
+        OnDeath += deathExplosionAction;
     }
 
     private void DestroyThis()
@@ -47,5 +51,10 @@ public class Astroid : MonoBehaviour, IHealthContainer, IScoreContainer
     private void AddToScore()
     {
         ScoreManager.AddScore(score);
+    }
+
+    private void PlayDeathExplosion()
+    {
+        Instantiate(deathExplosion, transform.position, transform.rotation);
     }
 }
