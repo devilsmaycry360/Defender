@@ -14,11 +14,25 @@ public class InputManager : MonoBehaviour
         private set;
         get;
     }
+    
+    public static bool IsHoldingFire
+    {
+        private set;
+        get;
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 pointerScreenPosition = context.ReadValue<Vector2>();
         PointerWorldPosition = PositionConvertor.ScreenToWorldVector2(pointerScreenPosition);
         PointerViewportPosition = PositionConvertor.ScreenToToViewport(pointerScreenPosition);
+    }
+    
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            IsHoldingFire = true;
+        else if (context.canceled)
+            IsHoldingFire = false;
     }
 }

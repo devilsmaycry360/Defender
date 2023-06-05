@@ -75,11 +75,19 @@ MonoBehaviour:
     m_ActionId: 98cfbf64-9721-407a-b9db-5a9287aa6d3c
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8efe8066-e4ca-446c-bbf8-fb6296a0ff96
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1331614578}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3a0aa607-6777-4b61-b124-c078b9061f82
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -150,6 +158,8 @@ GameObject:
   - component: {fileID: 1871451646883699483}
   - component: {fileID: 1871451646883699484}
   - component: {fileID: 4927229}
+  - component: {fileID: 2382042404820359274}
+  - component: {fileID: 4927230}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -213,7 +223,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 7d9d763d05b7f294a97f8d2b34c0dc76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -237,7 +247,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be141a83a672abe42a4cc9d38dc43092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 15
+  horizontalSpeed: 10
   verticalSpeed: 4
   minVerticalView: 0.2
   maxVerticalView: 0.8
+  playerAnimator: {fileID: 4927230}
+--- !u!114 &2382042404820359274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871451646883699485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abb5679b810baf469f53de13df58a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7418087437190413441, guid: 012452534491e1c4eb061f8263b8ccb7, type: 3}
+  coolDown: 1
+--- !u!95 &4927230
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871451646883699485}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d3debe4c0d747a48ad3eff24b0a925a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

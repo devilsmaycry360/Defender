@@ -123,36 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &4927226 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1871451646883699485, guid: 98c1a75e0bd5c284aa4f10981bb2e289, type: 3}
-  m_PrefabInstance: {fileID: 1871451646879970791}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4927228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1871451646883699483, guid: 98c1a75e0bd5c284aa4f10981bb2e289, type: 3}
   m_PrefabInstance: {fileID: 1871451646879970791}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &4927230
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4927226}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4d3debe4c0d747a48ad3eff24b0a925a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,14 +896,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4927229, guid: 98c1a75e0bd5c284aa4f10981bb2e289, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4927229, guid: 98c1a75e0bd5c284aa4f10981bb2e289, type: 3}
-      propertyPath: playerAnimator
-      value: 
-      objectReference: {fileID: 4927230}
     - target: {fileID: 1871451646883699483, guid: 98c1a75e0bd5c284aa4f10981bb2e289, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -973,10 +940,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1871451646883699484, guid: 98c1a75e0bd5c284aa4f10981bb2e289, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7d9d763d05b7f294a97f8d2b34c0dc76, type: 3}
     - target: {fileID: 1871451646883699485, guid: 98c1a75e0bd5c284aa4f10981bb2e289, type: 3}
       propertyPath: m_Name
       value: Player
