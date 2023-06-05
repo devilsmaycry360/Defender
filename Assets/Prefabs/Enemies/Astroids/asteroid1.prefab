@@ -149,3 +149,4 @@ MonoBehaviour:
   maxHealth: 10
   score: 100
   deathExplosion: {fileID: 4700897519340758002, guid: 57a59afcbffac924697f2292a0e21a90, type: 3}
+  possibleRewards: {fileID: 11400000, guid: 5c65f8155fceb214baa445e33d382aba, type: 2}
