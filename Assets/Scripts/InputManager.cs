@@ -12,6 +12,6 @@ public class InputManager : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 pointerScreenPosition = context.ReadValue<Vector2>();
-        PointerWorldPosition = ScreenPositionConvertor.ScreenToWorldVector2(pointerScreenPosition);
+        PointerWorldPosition = PositionConvertor.ScreenToWorldVector2(pointerScreenPosition);
     }
 }
