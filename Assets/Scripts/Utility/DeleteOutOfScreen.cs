@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeleteOutOfScreen : MonoBehaviour
 {
-    void OnBecameInvisible() 
+    private void OnBecameInvisible() 
     {
         Destroy(gameObject);
     }
