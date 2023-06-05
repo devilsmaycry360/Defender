@@ -6,6 +6,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float verticalSpeed = 2.0f;
     [SerializeField][Range(0,1)] private float minVerticalView = 0.2f;
     [SerializeField][Range(0,1)] private float maxVerticalView = 0.8f;
+    
+    [SerializeField] private Animator playerAnimator;
+    
+    private static readonly int verticalMove = Animator.StringToHash("VerticalMove");
+    private static readonly int horizontalMove = Animator.StringToHash("HorizontalMove");
 
     private void Update()
     {
@@ -18,12 +23,14 @@ public class PlayerMovement : MonoBehaviour
         float pointerOffsetFromCenter = InputManager.PointerViewportPosition.x - 0.5f;
         float speedBasedOnOffset = pointerOffsetFromCenter * horizontalSpeed;
         transform.Translate(transform.right * Time.deltaTime * speedBasedOnOffset);
+        playerAnimator.SetFloat(horizontalMove, pointerOffsetFromCenter);
     }
     
     private void MovePlayerVertically()
     {
         Vector2 movingDirection = new Vector2(0, InputManager.PointerWorldPosition.y - transform.position.y);
         transform.Translate(movingDirection * Time.deltaTime * verticalSpeed);
+        playerAnimator.SetFloat(verticalMove, movingDirection.y);
         
         KeepPlayerInVerticalViewLimits();
     }
