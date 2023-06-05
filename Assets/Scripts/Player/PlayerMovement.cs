@@ -2,20 +2,30 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float verticalSpeed;
+    [SerializeField] private float horizontalSpeed = 2.0f;
+    [SerializeField] private float verticalSpeed = 2.0f;
     [SerializeField][Range(0,1)] private float minVerticalView = 0.2f;
     [SerializeField][Range(0,1)] private float maxVerticalView = 0.8f;
 
     private void Update()
     {
         MovePlayerVertically();
-        KeepPlayerInVerticalViewLimits();
+        MovePlayerHorizontally();
     }
 
+    private void MovePlayerHorizontally()
+    {
+        float pointerOffsetFromCenter = InputManager.PointerViewportPosition.x - 0.5f;
+        float speedBasedOnOffset = pointerOffsetFromCenter * horizontalSpeed;
+        transform.Translate(transform.right * Time.deltaTime * speedBasedOnOffset);
+    }
+    
     private void MovePlayerVertically()
     {
         Vector2 movingDirection = new Vector2(0, InputManager.PointerWorldPosition.y - transform.position.y);
         transform.Translate(movingDirection * Time.deltaTime * verticalSpeed);
+        
+        KeepPlayerInVerticalViewLimits();
     }
 
     private void KeepPlayerInVerticalViewLimits()

@@ -13,4 +13,9 @@ public class PositionConvertor : MonoBehaviour
     {
         return mainCamera.ViewportToWorldPoint(viewportPosition);
     }
+    
+    public static Vector2 ScreenToToViewport(Vector2 screenPosition)
+    {
+        return mainCamera.ScreenToViewportPoint(screenPosition);
+    }
 }
