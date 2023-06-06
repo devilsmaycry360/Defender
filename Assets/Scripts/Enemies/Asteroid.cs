@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Astroid : MonoBehaviour, IHealthContainer, IScoreContainer, IRewardContainer
+public class Asteroid : MonoBehaviour, IHealthContainer, IScoreContainer, IRewardContainer
 {
     public int Score => score;
     public int MaxHealth => maxHealth;
