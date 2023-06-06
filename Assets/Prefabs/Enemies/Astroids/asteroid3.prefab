@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8106255765737340455}
   - component: {fileID: 8106255765737340454}
   - component: {fileID: 8106255765737340452}
+  - component: {fileID: -7488585461640482864}
   m_Layer: 3
   m_Name: Asteroid3
   m_TagString: Enemy
@@ -150,3 +151,16 @@ MonoBehaviour:
   score: 100
   deathExplosion: {fileID: 4700897519340758002, guid: 57a59afcbffac924697f2292a0e21a90, type: 3}
   possibleRewards: {fileID: 11400000, guid: 5c65f8155fceb214baa445e33d382aba, type: 2}
+--- !u!114 &-7488585461640482864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106255765737340507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088f22610c9bac340adb830dca200694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 2000

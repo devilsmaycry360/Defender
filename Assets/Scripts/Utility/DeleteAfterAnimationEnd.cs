@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DestroyAfterAnimationEnd : MonoBehaviour
+public class DeleteAfterAnimationEnd : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     
