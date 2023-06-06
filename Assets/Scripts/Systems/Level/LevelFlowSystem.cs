@@ -26,6 +26,12 @@ public class LevelFlowSystem : MonoBehaviour
         levelTile.onDestroyAction += () =>
         {
             LevelTile tile = levelTile; 
+            int index = spawnedTiles.FindIndex(x=> tile == x);
+            if (index == 0)
+                nextLeftTile = ChangeNextLeftTileOnDelete();
+            else
+                nextRightTile = ChangeNextRightTileOnDelete();
+
             spawnedTiles.Remove(tile);
         };
 
@@ -60,6 +66,20 @@ public class LevelFlowSystem : MonoBehaviour
         return levelStructure.LevelTileOrder[lastRightIndex];
     }
     
+    private LevelTile ChangeNextRightTileOnDelete()
+    {
+        lastRightIndex--;
+
+        if (lastRightIndex < 0)
+        {
+            lastRightIndex = levelStructure.LevelTileOrder.Length - 1;
+            return levelStructure.LevelTileOrder[^1];
+        }
+
+
+        return levelStructure.LevelTileOrder[lastRightIndex];
+    }
+    
     private LevelTile FindNextLeftTile()
     {
         lastLeftIndex--;
@@ -68,6 +88,20 @@ public class LevelFlowSystem : MonoBehaviour
         {
             lastLeftIndex = levelStructure.LevelTileOrder.Length - 1;
             return levelStructure.LevelTileOrder[^1];
+        }
+
+        
+        return levelStructure.LevelTileOrder[lastLeftIndex];
+    }
+    
+    private LevelTile ChangeNextLeftTileOnDelete()
+    {
+        lastLeftIndex++;
+
+        if (lastLeftIndex >= levelStructure.LevelTileOrder.Length)
+        {
+            lastLeftIndex = 0;
+            return levelStructure.LevelTileOrder[0];
         }
 
         
@@ -82,8 +116,7 @@ public class LevelFlowSystem : MonoBehaviour
 
     private void CheckRightSide()
     {
-        if (PositionConvertor.IsOutsideView(spawnedTiles[^1].EntryPoint.position)
-            && PositionConvertor.IsOutsideView(spawnedTiles[^1].transform.position))
+        if (PositionConvertor.IsOutsideView(spawnedTiles[^1].EntryPoint.position))
             return;
         
         AddTileToRight();
@@ -94,8 +127,7 @@ public class LevelFlowSystem : MonoBehaviour
 
     private void CheckLeftSide()
     {
-        if (PositionConvertor.IsOutsideView(spawnedTiles[0].ExitPoint.position)
-            && PositionConvertor.IsOutsideView(spawnedTiles[0].transform.position))
+        if (PositionConvertor.IsOutsideView(spawnedTiles[0].ExitPoint.position))
             return;
         
         AddTileToLeft();
@@ -111,6 +143,12 @@ public class LevelFlowSystem : MonoBehaviour
         levelTile.onDestroyAction += () =>
         {
             LevelTile tile = levelTile;
+            int index = spawnedTiles.FindIndex(x=> tile == x);
+            if (index == 0)
+                nextLeftTile = ChangeNextLeftTileOnDelete();
+            else
+                nextRightTile = ChangeNextRightTileOnDelete();
+            
             spawnedTiles.Remove(tile);
         };
     }
@@ -123,6 +161,12 @@ public class LevelFlowSystem : MonoBehaviour
         levelTile.onDestroyAction += () =>
         {
             LevelTile tile = levelTile;
+            int index = spawnedTiles.FindIndex(x=> tile == x);
+            if (index == 0)
+                nextLeftTile = ChangeNextLeftTileOnDelete();
+            else
+                nextRightTile = ChangeNextRightTileOnDelete();
+            
             spawnedTiles.Remove(tile);
         };
     }
