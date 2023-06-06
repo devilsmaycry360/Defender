@@ -14,7 +14,7 @@ public class LevelFlowSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(WaitAndDo());
+        StartCoroutine(WaitAndInitializeLevel());
     }
 
     private void InitializeLevel()
@@ -25,14 +25,7 @@ public class LevelFlowSystem : MonoBehaviour
         spawnedTiles.Add(levelTile);
         levelTile.onDestroyAction += () =>
         {
-            LevelTile tile = levelTile; 
-            int index = spawnedTiles.FindIndex(x=> tile == x);
-            if (index == 0)
-                nextLeftTile = ChangeNextLeftTileOnDelete();
-            else
-                nextRightTile = ChangeNextRightTileOnDelete();
-
-            spawnedTiles.Remove(tile);
+            OnTileDestroy(levelTile);
         };
 
         lastRightIndex = 0;
@@ -43,10 +36,13 @@ public class LevelFlowSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (spawnedTiles.Count == 0)
+            return;
+        
         CheckLevelLimits();
     }
 
-    private IEnumerator WaitAndDo()
+    private IEnumerator WaitAndInitializeLevel()
     {
         yield return new WaitForSeconds(0.1f);
         InitializeLevel();
@@ -142,14 +138,7 @@ public class LevelFlowSystem : MonoBehaviour
         spawnedTiles.Add(levelTile);
         levelTile.onDestroyAction += () =>
         {
-            LevelTile tile = levelTile;
-            int index = spawnedTiles.FindIndex(x=> tile == x);
-            if (index == 0)
-                nextLeftTile = ChangeNextLeftTileOnDelete();
-            else
-                nextRightTile = ChangeNextRightTileOnDelete();
-            
-            spawnedTiles.Remove(tile);
+            OnTileDestroy(levelTile);
         };
     }
 
@@ -160,14 +149,20 @@ public class LevelFlowSystem : MonoBehaviour
         spawnedTiles.Insert(0, levelTile);
         levelTile.onDestroyAction += () =>
         {
-            LevelTile tile = levelTile;
-            int index = spawnedTiles.FindIndex(x=> tile == x);
-            if (index == 0)
-                nextLeftTile = ChangeNextLeftTileOnDelete();
-            else
-                nextRightTile = ChangeNextRightTileOnDelete();
-            
-            spawnedTiles.Remove(tile);
+            OnTileDestroy(levelTile);
         };
+    }
+
+    private void OnTileDestroy(LevelTile levelTile)
+    {
+        LevelTile tile = levelTile;
+        int index = spawnedTiles.FindIndex(item=> tile == item);
+        
+        if (index == 0)
+            nextLeftTile = ChangeNextLeftTileOnDelete();
+        else
+            nextRightTile = ChangeNextRightTileOnDelete();
+            
+        spawnedTiles.Remove(tile);
     }
 }

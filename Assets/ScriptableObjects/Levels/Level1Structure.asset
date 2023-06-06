@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level1Structure
   m_EditorClassIdentifier: 
   LevelTileOrder:
+  - {fileID: 2698640231517490687, guid: 72300ead091546e47b44f5d52ee9e0e5, type: 3}
   - {fileID: 6335943858407172385, guid: 609e274e98ecef7448789ed38a10616c, type: 3}
   - {fileID: 4351011141206030956, guid: c450aa114c3d23e4da80f343cfe331b2, type: 3}
   - {fileID: 4351011141206030956, guid: c450aa114c3d23e4da80f343cfe331b2, type: 3}

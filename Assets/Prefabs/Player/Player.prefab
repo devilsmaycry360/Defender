@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1331614577}
   - component: {fileID: 1331614579}
   - component: {fileID: 1331614578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InputManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4535241002496433527}
   - component: {fileID: 2759449178378860406}
   - component: {fileID: 863986311401485740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

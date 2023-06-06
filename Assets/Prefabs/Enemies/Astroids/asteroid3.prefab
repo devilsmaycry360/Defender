@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94615230f8d9c747906856827f64be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 3
   score: 100
   deathExplosion: {fileID: 4700897519340758002, guid: 57a59afcbffac924697f2292a0e21a90, type: 3}
   possibleRewards: {fileID: 11400000, guid: 5c65f8155fceb214baa445e33d382aba, type: 2}
