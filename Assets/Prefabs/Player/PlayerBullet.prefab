@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c06f86e8d759c4682ab0a13ce30ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AffectingLayers:
+  affectingLayers:
     serializedVersion: 2
     m_Bits: 8
   explosion: {fileID: 2911092841354984565, guid: 6cbea663ce89cdf49a81cdbfb8c9c318, type: 3}
