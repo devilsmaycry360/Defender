@@ -10,6 +10,9 @@ public class PlayerShooting : MonoBehaviour
     
     private void Update()
     {
+        if (PlayerHealth.PlayerIsDead)
+            return;
+        
         CheckCoolDown();
         CheckShooting();
     }

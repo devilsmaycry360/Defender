@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5033859879307952199}
   - component: {fileID: 5033859879307952198}
   - component: {fileID: 5033859879307952196}
+  - component: {fileID: 2117863761294886213}
   - component: {fileID: 5033859879307952193}
   - component: {fileID: -5598601317600625909}
   m_Layer: 3
@@ -113,6 +114,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.875, y: 3.375}
   m_EdgeRadius: 0
+--- !u!50 &2117863761294886213
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033859879307952192}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &5033859879307952193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,10 +149,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 300
   maxHealth: 5
-  coolDown: 2
-  bullet: {fileID: 7418087437190413441, guid: bb4ad129708324e47b4c5bd5701c5760, type: 3}
   deathExplosion: {fileID: 4700897519340758002, guid: 57a59afcbffac924697f2292a0e21a90, type: 3}
   possibleRewards: {fileID: 11400000, guid: d11b42467169fdc409fecb5c2c527256, type: 2}
+  coolDown: 2
+  bullet: {fileID: 7418087437190413441, guid: bb4ad129708324e47b4c5bd5701c5760, type: 3}
 --- !u!114 &-5598601317600625909
 MonoBehaviour:
   m_ObjectHideFlags: 0
