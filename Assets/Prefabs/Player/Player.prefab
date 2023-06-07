@@ -337,8 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abb5679b810baf469f53de13df58a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7418087437190413441, guid: 012452534491e1c4eb061f8263b8ccb7, type: 3}
-  coolDown: 1
+  bulletLevels: {fileID: 11400000, guid: 8118e0312d9dc4b4b94213db30e14bfb, type: 2}
 --- !u!114 &569202057009471020
 MonoBehaviour:
   m_ObjectHideFlags: 0

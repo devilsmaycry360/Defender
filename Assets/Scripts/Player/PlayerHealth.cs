@@ -6,6 +6,8 @@ public class PlayerHealth : MonoBehaviour, IHealthContainer
     public static bool PlayerIsDead;
     public int MaxHealth => maxHealth;
     public int CurrentHealth => currentHealth;
+    public Action OnHealthIncrease;
+    public Action OnHealthDecrease;
     public Action OnDeath { get; set; }
     public Action OnHealthChanged { get; set; }
 
@@ -31,8 +33,16 @@ public class PlayerHealth : MonoBehaviour, IHealthContainer
 
     public void ChangeHealth(int amount)
     {
+        if (amount == 0)
+            return;
+        
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         OnHealthChanged?.Invoke();
+        
+        if (amount > 0)
+            OnHealthIncrease?.Invoke();
+        else
+            OnHealthDecrease?.Invoke();
 
         if (currentHealth == 0)
             OnDeath?.Invoke();
@@ -41,10 +51,5 @@ public class PlayerHealth : MonoBehaviour, IHealthContainer
     private static void SetPlayerAsDead()
     {
         PlayerIsDead = true;
-    }
-
-    private void Update()
-    {
-        print(currentHealth);
     }
 }

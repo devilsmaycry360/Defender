@@ -23,6 +23,9 @@ public abstract class Enemy : MonoBehaviour, IHealthContainer, IScoreContainer, 
 
     public void ChangeHealth(int amount)
     {
+        if (amount == 0)
+            return;
+        
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         OnHealthChanged?.Invoke();
 

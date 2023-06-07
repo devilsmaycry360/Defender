@@ -12,19 +12,18 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnEnable()
     {
-        playerHealth.OnHealthChanged += respawnAction;
+        playerHealth.OnHealthDecrease += respawnAction;
     }
 
     private void OnDisable()
     {
-        playerHealth.OnHealthChanged -= respawnAction;
+        playerHealth.OnHealthDecrease -= respawnAction;
     }
 
     private void RespawnPlayer()
     {
         StartCoroutine(PlayRespawnEffect());
         StartCoroutine(HandleBoxCollider());
-        // StartCoroutine(HandleRespawPosition());
     }
     
     private IEnumerator PlayRespawnEffect()
@@ -44,14 +43,5 @@ public class PlayerRespawn : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         playerBoxCollider.enabled = true;
-    }
-
-    private IEnumerator HandleRespawPosition()
-    {
-        yield return new WaitForSeconds(0.5f);
-        
-        Vector3 currentPosition = playerBoxCollider.transform.position;
-        Vector2 newPosition = PositionConvertor.ViewportToWorldVector2(new Vector2(0.2f, 0.5f));
-        playerBoxCollider.transform.position = new Vector3(newPosition.x, newPosition.y, currentPosition.z);
     }
 }

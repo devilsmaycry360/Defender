@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32cfadfe05a169d4a8ad11ca3b9f5165, type: 3}
+  m_Name: PlayerBulletLevels
+  m_EditorClassIdentifier: 
+  Levels:
+  - BulletPrefab: {fileID: 7418087437190413441, guid: 012452534491e1c4eb061f8263b8ccb7, type: 3}
+    FireRate: 1
+  - BulletPrefab: {fileID: 823098842127287389, guid: b2ff81b1f35a0bb418a9eaea3d32f0ca, type: 3}
+    FireRate: 1
+  - BulletPrefab: {fileID: 823098842127287389, guid: b2ff81b1f35a0bb418a9eaea3d32f0ca, type: 3}
+    FireRate: 0.5
+  - BulletPrefab: {fileID: 823098842127287389, guid: ab3c68f0ba8e7ff4a87b356fe7a9e771, type: 3}
+    FireRate: 1
+  - BulletPrefab: {fileID: 823098842127287389, guid: ab3c68f0ba8e7ff4a87b356fe7a9e771, type: 3}
+    FireRate: 0.5
+  - BulletPrefab: {fileID: 823098842127287389, guid: ab3c68f0ba8e7ff4a87b356fe7a9e771, type: 3}
+    FireRate: 0.25
