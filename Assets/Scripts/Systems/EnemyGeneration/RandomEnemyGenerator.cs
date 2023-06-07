@@ -1,11 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using System;
+using Random = UnityEngine.Random;
 
 public class RandomEnemyGenerator : MonoBehaviour
 {
     [SerializeField] private EnemyPool[] enemyPools;
     private Coroutine enemyGenerationCoroutine;
     private EnemyPool activeEnemyPool;
+
+    private Action ChangeEnemyPoolAction => SetActivePool;
     
     private enum Direction
     {
@@ -16,12 +20,14 @@ public class RandomEnemyGenerator : MonoBehaviour
     private void OnEnable()
     {
         activeEnemyPool = enemyPools[0];
+        DifficultySystem.OnDifficultyChanged += ChangeEnemyPoolAction;
         enemyGenerationCoroutine = StartCoroutine(TryGeneratingEnemy());
     }
 
     private void OnDisable()
     {
         StopCoroutine(enemyGenerationCoroutine);
+        DifficultySystem.OnDifficultyChanged -= ChangeEnemyPoolAction;
     }
 
     private IEnumerator TryGeneratingEnemy()
@@ -87,5 +93,10 @@ public class RandomEnemyGenerator : MonoBehaviour
             return Direction.Right;
 
         return Direction.Left;
+    }
+
+    private void SetActivePool()
+    {
+        activeEnemyPool = enemyPools[(int)DifficultySystem.CurrentDifficulty];
     }
 }
