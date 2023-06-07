@@ -15,9 +15,13 @@ MonoBehaviour:
   PossibleRewards:
   - Chance: 0.4
     Type: 0
+    Prefab: {fileID: 0}
   - Chance: 0.1
     Type: 2
+    Prefab: {fileID: 2784588916983514917, guid: c118b81a1389c5f4fb93e41c6147cd73, type: 3}
   - Chance: 0.3
     Type: 3
+    Prefab: {fileID: 7502529071763244293, guid: 45d5e2529d4601f439854ac4f7c6cfe1, type: 3}
   - Chance: 0.2
     Type: 1
+    Prefab: {fileID: 4683506466944294816, guid: 73118c873f8b5d347a8f0397b5e3b92e, type: 3}

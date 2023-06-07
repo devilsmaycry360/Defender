@@ -24,7 +24,6 @@ public class PlayerShooting : MonoBehaviour
 
     public void LevelUpBullet()
     {
-        // currentBulletLevel++;
         currentBulletLevel = Mathf.Clamp(++currentBulletLevel, 0, bulletLevels.Levels.Length - 1);
     }
 

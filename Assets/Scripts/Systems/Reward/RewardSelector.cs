@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class RewardSelector : MonoBehaviour
 {
-    public static RewardType ChooseReward(RewardPool pool)
+    public static RewardProbability ChooseReward(RewardPool pool)
     {
         float totalWeight = 0;
         float weightCheck = 0;
-        RewardType chosenRewardType = RewardType.None;
+        RewardProbability chosenReward = new RewardProbability();
         
         foreach (RewardProbability reward in pool.PossibleRewards)
             totalWeight += reward.Chance;
@@ -20,10 +20,10 @@ public class RewardSelector : MonoBehaviour
             if (randomWeight > weightCheck)
                 continue;
 
-            chosenRewardType = reward.Type;
+            chosenReward = reward;
             break;
         }
 
-        return chosenRewardType;
+        return chosenReward;
     }
 }

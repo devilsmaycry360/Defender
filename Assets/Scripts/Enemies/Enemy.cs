@@ -68,6 +68,11 @@ public abstract class Enemy : MonoBehaviour, IHealthContainer, IScoreContainer, 
     
     private void CheckReward()
     {
-        print( ((IRewardContainer)this).ChooseReward());
+        RewardProbability reward = ((IRewardContainer)this).ChooseReward();
+        
+        if (reward.Type == RewardType.None)
+            return;
+
+        Instantiate(reward.Prefab, transform.position, transform.rotation);
     }
 }

@@ -2,7 +2,7 @@ public interface IRewardContainer
 {
     RewardPool PossibleRewards { get; }
 
-    public RewardType ChooseReward()
+    public RewardProbability ChooseReward()
     {
         return RewardSelector.ChooseReward(PossibleRewards);
     }
