@@ -153,6 +153,7 @@ MonoBehaviour:
   possibleRewards: {fileID: 11400000, guid: d11b42467169fdc409fecb5c2c527256, type: 2}
   coolDown: 2
   bullet: {fileID: 7418087437190413441, guid: bb4ad129708324e47b4c5bd5701c5760, type: 3}
+  spriteRenderer: {fileID: 5033859879307952198}
 --- !u!114 &-5598601317600625909
 MonoBehaviour:
   m_ObjectHideFlags: 0

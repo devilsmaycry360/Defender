@@ -8,25 +8,29 @@ public class Enemy_Shooter : Enemy, IShooter
     
     [SerializeField] private float coolDown;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void OnEnable()
     {
         base.OnEnable();
         
-        StartCoroutine(WaitAndShoot());
+        StartCoroutine(WaitAndShootIfOnScreen());
     }
 
     private void OnDisable()
     {
         base.OnDisable();
         
-        StopCoroutine(WaitAndShoot());
+        StopCoroutine(WaitAndShootIfOnScreen());
     }
 
-    private IEnumerator WaitAndShoot()
+    private IEnumerator WaitAndShootIfOnScreen()
     {
         yield return new WaitForSeconds(coolDown);
-        Instantiate(bullet, transform.position, transform.rotation);
-        StartCoroutine(WaitAndShoot());
+        
+        if (spriteRenderer.isVisible)
+            Instantiate(bullet, transform.position, transform.rotation);
+        
+        StartCoroutine(WaitAndShootIfOnScreen());
     }
 }

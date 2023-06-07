@@ -42,4 +42,9 @@ public class PlayerHealth : MonoBehaviour, IHealthContainer
     {
         PlayerIsDead = true;
     }
+
+    private void Update()
+    {
+        print(currentHealth);
+    }
 }

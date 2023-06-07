@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     public static void AddScore(int score)
     {
         totalScore += score;
-        print(totalScore);
+        print("Score: " + totalScore);
     }
 
     private void OnEnable()

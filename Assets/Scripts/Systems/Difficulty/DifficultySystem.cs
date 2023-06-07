@@ -20,11 +20,6 @@ public class DifficultySystem : MonoBehaviour
         Hard
     }
 
-    private void Update()
-    {
-        print(currentDifficulty);
-    }
-
     private void OnEnable()
     {
         currentDifficulty = Difficulty.Easy;
