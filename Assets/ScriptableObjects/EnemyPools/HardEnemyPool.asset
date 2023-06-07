@@ -10,14 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be1ddc3518f04f34b8c0bf8689c592ca, type: 3}
-  m_Name: EasyEnemyPool
+  m_Name: HardEnemyPool
   m_EditorClassIdentifier: 
   GenerationInterval: 2
   IntervalProbability: 1
   PossibleEnemies:
-  - Chance: 0.4
+  - Chance: 0.2
     Type: 0
-    Prefab: {fileID: 2510429080358098315, guid: 58a0cff3642dda24a920b6f4323205d1, type: 3}
-  - Chance: 0.6
+    Prefab: {fileID: 8106255765737340507, guid: f97177cc57738ba4387d0d4c1c89897d, type: 3}
+  - Chance: 0.3
     Type: 1
     Prefab: {fileID: 5033859879307952192, guid: 4ff3e9d79543b544dac82ee93e1b118c, type: 3}
+  - Chance: 0.2
+    Type: 2
+    Prefab: {fileID: 6730429310531357181, guid: 25d57ff9109cb9c45a15c061e18f3cd8, type: 3}
+  - Chance: 0.3
+    Type: 3
+    Prefab: {fileID: 8289537556162069811, guid: 6d47a15f800ceac4ba8f1a075592eca8, type: 3}

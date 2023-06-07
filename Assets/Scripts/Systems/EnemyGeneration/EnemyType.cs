@@ -2,5 +2,6 @@ public enum EnemyType
 {
     Asteroid,
     Shooter,
-    Chaser
+    Chaser,
+    AimShooter
 }
