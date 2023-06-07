@@ -18,6 +18,9 @@ MonoBehaviour:
   - Chance: 0.4
     Type: 0
     Prefab: {fileID: 2510429080358098315, guid: 58a0cff3642dda24a920b6f4323205d1, type: 3}
-  - Chance: 0.6
+  - Chance: 0.5
     Type: 1
     Prefab: {fileID: 5033859879307952192, guid: 4ff3e9d79543b544dac82ee93e1b118c, type: 3}
+  - Chance: 0.1
+    Type: 2
+    Prefab: {fileID: 6730429310531357181, guid: 25d57ff9109cb9c45a15c061e18f3cd8, type: 3}
