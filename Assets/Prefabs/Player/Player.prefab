@@ -253,6 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be141a83a672abe42a4cc9d38dc43092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerVCam: {fileID: 0}
+  playerVCamOffset: {x: 10, y: 0, z: 0}
   horizontalSpeed: 10
   verticalSpeed: 4
   minVerticalView: 0.2

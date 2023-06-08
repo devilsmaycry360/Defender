@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,10 +13,25 @@ public class LevelFlowSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(WaitAndInitializeLevel());
+        InitializeLevel();
+    }
+
+    private void FixedUpdate()
+    {
+        if (spawnedTiles.Count == 0)
+            return;
+        
+        CheckLevelLimits();
     }
 
     private void InitializeLevel()
+    {
+        MakeFirstTile();
+        AddTileToRight();
+        AddTileToLeft();
+    }
+
+    private void MakeFirstTile()
     {
         Vector2 startPosition = PositionConvertor.ViewportToWorldVector2(new Vector2(0, 0.5f));
         startPosition = new Vector2(startPosition.x - levelStructure.LevelTileOrder[0].EntryPoint.localPosition.x, startPosition.y);
@@ -32,20 +46,6 @@ public class LevelFlowSystem : MonoBehaviour
         lastLeftIndex = 0;
         nextRightTile = FindNextRightTile();
         nextLeftTile = FindNextLeftTile();
-    }
-
-    private void FixedUpdate()
-    {
-        if (spawnedTiles.Count == 0)
-            return;
-        
-        CheckLevelLimits();
-    }
-
-    private IEnumerator WaitAndInitializeLevel()
-    {
-        yield return new WaitForSeconds(0.1f);
-        InitializeLevel();
     }
 
     private LevelTile FindNextRightTile()
@@ -116,7 +116,6 @@ public class LevelFlowSystem : MonoBehaviour
             return;
         
         AddTileToRight();
-        nextRightTile = FindNextRightTile();
         CheckRightSide();
 
     }
@@ -127,7 +126,6 @@ public class LevelFlowSystem : MonoBehaviour
             return;
         
         AddTileToLeft();
-        nextLeftTile = FindNextLeftTile();
         CheckLeftSide();
     }
 
@@ -136,6 +134,7 @@ public class LevelFlowSystem : MonoBehaviour
         Vector2 startPosition = new Vector2(spawnedTiles[^1].ExitPoint.position.x - nextRightTile.EntryPoint.localPosition.x, nextRightTile.EntryPoint.position.y);
         LevelTile levelTile = Instantiate(nextRightTile, startPosition, transform.rotation).GetComponent<LevelTile>();
         spawnedTiles.Add(levelTile);
+        nextRightTile = FindNextRightTile();
         levelTile.onDestroyAction += () =>
         {
             OnTileDestroy(levelTile);
@@ -147,6 +146,7 @@ public class LevelFlowSystem : MonoBehaviour
         Vector2 startPosition = new Vector2(spawnedTiles[0].EntryPoint.position.x - nextLeftTile.ExitPoint.localPosition.x, nextLeftTile.EntryPoint.position.y);
         LevelTile levelTile = Instantiate(nextLeftTile, startPosition, transform.rotation).GetComponent<LevelTile>();
         spawnedTiles.Insert(0, levelTile);
+        nextLeftTile = FindNextLeftTile();
         levelTile.onDestroyAction += () =>
         {
             OnTileDestroy(levelTile);
