@@ -24,7 +24,7 @@ public class PlayerDeath : MonoBehaviour
     private IEnumerator WaitAndRestart()
     {
         DisablePlayer();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         RestartGame();
     }
 

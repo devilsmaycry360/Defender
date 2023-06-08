@@ -1,11 +1,14 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SetPlayerHealthUI : MonoBehaviour
 {
     [SerializeField] private GameObject healthElement;
+    
     private PlayerHealth playerHealth;
     private List<GameObject> healthElements;
+    private Action showHealthAction => ShowHealth;
 
     private void OnEnable()
     {
@@ -15,14 +18,14 @@ public class SetPlayerHealthUI : MonoBehaviour
         healthElements = new List<GameObject>();
         healthElements.Add(healthElement);
         
-        playerHealth.OnHealthChanged += ShowHealth;
+        playerHealth.OnHealthChanged += showHealthAction;
 
         ShowHealth();
     }
 
     private void OnDisable()
     {
-        playerHealth.OnHealthChanged += ShowHealth;
+        playerHealth.OnHealthChanged -= showHealthAction;
     }
 
     private void ShowHealth()
