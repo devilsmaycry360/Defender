@@ -23,6 +23,9 @@ public class InputManager : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (PlayerHealth.PlayerIsDead)
+            return;
+        
         Vector2 pointerScreenPosition = context.ReadValue<Vector2>();
         PointerWorldPosition = PositionConvertor.ScreenToWorldVector2(pointerScreenPosition);
         PointerViewportPosition = PositionConvertor.ScreenToToViewport(pointerScreenPosition);
@@ -30,6 +33,12 @@ public class InputManager : MonoBehaviour
     
     public void OnFire(InputAction.CallbackContext context)
     {
+        if (PlayerHealth.PlayerIsDead)
+        {
+            IsHoldingFire = false;
+            return;
+        }
+
         if (context.performed)
             IsHoldingFire = true;
         else if (context.canceled)

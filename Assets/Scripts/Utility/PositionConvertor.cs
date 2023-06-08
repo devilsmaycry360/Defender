@@ -1,28 +1,25 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PositionConvertor : MonoBehaviour
 {
-    private static Camera mainCamera = Camera.main;
-
     public static Vector2 ScreenToWorldVector2(Vector2 screenPosition)
     {
-        return mainCamera.ScreenToWorldPoint(screenPosition);
+        return Camera.main.ScreenToWorldPoint(screenPosition);
     }
     
     public static Vector2 ViewportToWorldVector2(Vector2 viewportPosition)
     {
-        return mainCamera.ViewportToWorldPoint(viewportPosition);
+        return Camera.main.ViewportToWorldPoint(viewportPosition);
     }
     
     public static Vector2 ScreenToToViewport(Vector2 screenPosition)
     {
-        return mainCamera.ScreenToViewportPoint(screenPosition);
+        return Camera.main.ScreenToViewportPoint(screenPosition);
     }
     
     public static Vector2 WorldVector2ToViewport(Vector2 worldPosition)
     {
-        return mainCamera.WorldToViewportPoint(worldPosition);
+        return Camera.main.WorldToViewportPoint(worldPosition);
     }
 
     public static bool IsOutsideView(Vector2 worldPosition)
