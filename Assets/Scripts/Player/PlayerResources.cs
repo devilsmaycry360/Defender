@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class PlayerResources : MonoBehaviour
 {
     public static int Coins => coins;
+    public static Action OnCoinChanged;
 
     private static int coins;
 
@@ -13,6 +15,6 @@ public class PlayerResources : MonoBehaviour
         
         coins += amount;
         
-        print("Coins: " + coins);
+        OnCoinChanged?.Invoke();
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1ddc3518f04f34b8c0bf8689c592ca, type: 3}
   m_Name: EasyEnemyPool
   m_EditorClassIdentifier: 
-  GenerationInterval: 2
+  GenerationInterval: 3
   IntervalProbability: 1
   PossibleEnemies:
   - Chance: 0.4
